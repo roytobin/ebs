@@ -1,0 +1,2 @@
+# ebs
+Easy Boggle Solitaire
