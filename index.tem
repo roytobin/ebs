@@ -85,7 +85,6 @@ window.boggleVersion = '0.1';
 <noscript><h1> JavaScript is not enabled </h1></noscript>
 
 <h4>Easy Boggle&trade; Solitaire </h4>
-<h5>https://roytobin.github.io/ebs/ </h5>
 
 <button type="button"  onclick="bs_randomBook()"> Random book of puzzles </button>
 <br>
@@ -115,16 +114,10 @@ Example  liosysdasertaaga<br>
 HIST
 
 function navigateToBookPage (code) {
-    let prefix;
     //console.log("navigateToBookPage 5", code, window.location.href);
     //console.log("navigateToBookPage 7", code, window.location.pathname);
 
-    // BUG: trying to get this to work for both
-    // https from github pages and file: for local testing.
-    //
-    prefix = (/[\/\\]$/.test(location.pathname)) ? "../" : "";
-    prefix = '';
-    window.location.href = prefix + `ebs.htm?code=${code}`;
+    window.location.href = `ebs.htm?code=${code}`;
 }
 
 // CAUTION: not as simple as changing c2n_letters here -- the
