@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title> Puzzle Book for Easy Boggle Solitaire </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest"  xxhref="site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" xxhref="apple-touch-icon.png">
+
+<!-- https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
+<meta name="apple-mobile-web-app-title" content="Puzzle Book for Boggle Solitaire">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="keywords"    content="boggle, solitaire, puzzle, JavaScript">
+<meta name="description" content="free printable boggle worksheets and boggle boards with solutions">
+<script>
+window.boggleVersion = '0.1';
+</script>
+<style>
+:root {
+    --varOne: 10;
+}
+.a { transform: rotate(0deg); }
+.b { transform: rotate(90deg); }
+.c { transform: rotate(90deg); }
+.d { transform: rotate(270deg); }
+.e { transform: rotate(90deg); }
+.f { transform: rotate(180deg); }
+.g { transform: rotate(180deg); }
+.h { transform: rotate(90deg); }
+.i { transform: rotate(180deg); }
+.j { transform: rotate(0deg); }
+.k { transform: rotate(180deg); }
+.l { transform: rotate(180deg); }
+.m { transform: rotate(180deg); }
+.n { transform: rotate(90deg); }
+.o { transform: rotate(270deg); }
+.p { transform: rotate(0deg); }
+.line {
+    font-weight: 100;
+}
+.solution {
+    font-size: 80%;
+}
+.letsp {
+    font-size: 75%;
+    letter-spacing: 1.5vw;
+}
+.qu {
+    font-size: 95%;
+    letter-spacing: -2px;
+}
+.board {
+    margin: auto;
+    color: blue;
+    font-weight: bold;
+    width: 25%;  /* beware: render in print preview shifts to left */
+    border: 1px solid black
+    padding: 10px;
+    xxfont-size: 2.5vw;
+    font-size: 250%;
+    letter-spacing: 2.6vw;
+}
+.grid {
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    width: 50%;
+    display: grid;
+    xxgrid-template-columns: 3.8vw 3.8vw 3.8vw 3.8vw;
+    grid-template-columns: 4.8vw 4.8vw 4.8vw 4.8vw;
+}
+.item {
+    color: blue;
+    font-weight: bold;
+    xxborder: 1px solid green;
+    font-family: monospace;
+    font-size: 250%;
+    text-align: center;
+}
+.answer {
+    line-height: 180%;
+    color: gray;
+}
+.pagebreak {
+    page-break-after: always;
+}
+</style>
+</head>
+
+<body onload="bodyLoaded()">
+<!--[if IE]>
+  <h1> Internet Explorer is not supported </h1>
+<![endif]-->
+<noscript><h1> JavaScript is not enabled </h1></noscript>
+
+<h4>Easy Boggle&trade; Solitaire &mdash; Puzzle 1 of 7</h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+<h4 id="hlh" style="display: none">How long hidden? </h4>
+Find words in the grid using Boggle&trade; rules.
+<br>
+The computer found <span class=found1>&mdash;</span> non-arcane,
+non-archaic and non-specialized US English words.<br>
+How many can you find? <span id=percent1></span>
+<br>
+<br>
+<pre id=grid1 class="board">
+</pre>
+<br>
+<br>
+<div class="answer">
+&nbsp;&nbsp;1._____________________21._____________________41._____________________61._____________________<br>
+&nbsp;&nbsp;2._____________________22._____________________42._____________________62._____________________<br>
+&nbsp;&nbsp;3._____________________23._____________________43._____________________63._____________________<br>
+&nbsp;&nbsp;4._____________________24._____________________44._____________________64._____________________<br>
+&nbsp;&nbsp;5._____________________25._____________________45._____________________65._____________________<br>
+&nbsp;&nbsp;6._____________________26._____________________46._____________________66._____________________<br>
+&nbsp;&nbsp;7._____________________27._____________________47._____________________67._____________________<br>
+&nbsp;&nbsp;8._____________________28._____________________48._____________________68._____________________<br>
+&nbsp;&nbsp;9._____________________29._____________________49._____________________69._____________________<br>
+10._____________________30._____________________50._____________________70._____________________<br>
+11._____________________31._____________________51._____________________71._____________________<br>
+12._____________________32._____________________52._____________________72._____________________<br>
+13._____________________33._____________________53._____________________73._____________________<br>
+14._____________________34._____________________54._____________________74._____________________<br>
+15._____________________35._____________________55._____________________75._____________________<br>
+16._____________________36._____________________56._____________________76._____________________<br>
+17._____________________37._____________________57._____________________77._____________________<br>
+18._____________________38._____________________58._____________________78._____________________<br>
+19._____________________39._____________________59._____________________79._____________________<br>
+20._____________________40._____________________60._____________________80._____________________<br>
+</div>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+<div class="pagebreak"></div>
+<h4>Easy Boggle&trade; Solitaire &mdash; Puzzle 2 of 7</h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+<h4 id="hlh" style="display: none">How long hidden? </h4>
+Find words in the grid using Boggle&trade; rules.
+<br>
+The computer found <span class=found2>&mdash;</span> non-arcane,
+non-archaic and non-specialized US English words.<br>
+How many can you find? <span id=percent2></span>
+<br>
+<br>
+<pre id=grid2 class="board">
+</pre>
+<br>
+<br>
+<div class="answer">
+&nbsp;&nbsp;1._____________________21._____________________41._____________________61._____________________<br>
+&nbsp;&nbsp;2._____________________22._____________________42._____________________62._____________________<br>
+&nbsp;&nbsp;3._____________________23._____________________43._____________________63._____________________<br>
+&nbsp;&nbsp;4._____________________24._____________________44._____________________64._____________________<br>
+&nbsp;&nbsp;5._____________________25._____________________45._____________________65._____________________<br>
+&nbsp;&nbsp;6._____________________26._____________________46._____________________66._____________________<br>
+&nbsp;&nbsp;7._____________________27._____________________47._____________________67._____________________<br>
+&nbsp;&nbsp;8._____________________28._____________________48._____________________68._____________________<br>
+&nbsp;&nbsp;9._____________________29._____________________49._____________________69._____________________<br>
+10._____________________30._____________________50._____________________70._____________________<br>
+11._____________________31._____________________51._____________________71._____________________<br>
+12._____________________32._____________________52._____________________72._____________________<br>
+13._____________________33._____________________53._____________________73._____________________<br>
+14._____________________34._____________________54._____________________74._____________________<br>
+15._____________________35._____________________55._____________________75._____________________<br>
+16._____________________36._____________________56._____________________76._____________________<br>
+17._____________________37._____________________57._____________________77._____________________<br>
+18._____________________38._____________________58._____________________78._____________________<br>
+19._____________________39._____________________59._____________________79._____________________<br>
+20._____________________40._____________________60._____________________80._____________________<br>
+</div>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+<div class="pagebreak"></div>
+<h4>Easy Boggle&trade; Solitaire &mdash; Puzzle 3 of 7</h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+<h4 id="hlh" style="display: none">How long hidden? </h4>
+Find words in the grid using Boggle&trade; rules.
+<br>
+The computer found <span class=found3>&mdash;</span> non-arcane,
+non-archaic and non-specialized US English words.<br>
+How many can you find? <span id=percent3></span>
+<br>
+<br>
+<pre id=grid3 class="board">
+</pre>
+<br>
+<br>
+<div class="answer">
+&nbsp;&nbsp;1._____________________21._____________________41._____________________61._____________________<br>
+&nbsp;&nbsp;2._____________________22._____________________42._____________________62._____________________<br>
+&nbsp;&nbsp;3._____________________23._____________________43._____________________63._____________________<br>
+&nbsp;&nbsp;4._____________________24._____________________44._____________________64._____________________<br>
+&nbsp;&nbsp;5._____________________25._____________________45._____________________65._____________________<br>
+&nbsp;&nbsp;6._____________________26._____________________46._____________________66._____________________<br>
+&nbsp;&nbsp;7._____________________27._____________________47._____________________67._____________________<br>
+&nbsp;&nbsp;8._____________________28._____________________48._____________________68._____________________<br>
+&nbsp;&nbsp;9._____________________29._____________________49._____________________69._____________________<br>
+10._____________________30._____________________50._____________________70._____________________<br>
+11._____________________31._____________________51._____________________71._____________________<br>
+12._____________________32._____________________52._____________________72._____________________<br>
+13._____________________33._____________________53._____________________73._____________________<br>
+14._____________________34._____________________54._____________________74._____________________<br>
+15._____________________35._____________________55._____________________75._____________________<br>
+16._____________________36._____________________56._____________________76._____________________<br>
+17._____________________37._____________________57._____________________77._____________________<br>
+18._____________________38._____________________58._____________________78._____________________<br>
+19._____________________39._____________________59._____________________79._____________________<br>
+20._____________________40._____________________60._____________________80._____________________<br>
+</div>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+<div class="pagebreak"></div>
+<h4>Easy Boggle&trade; Solitaire &mdash; Puzzle 4 of 7</h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+<h4 id="hlh" style="display: none">How long hidden? </h4>
+Find words in the grid using Boggle&trade; rules.
+<br>
+The computer found <span class=found4>&mdash;</span> non-arcane,
+non-archaic and non-specialized US English words.<br>
+How many can you find? <span id=percent4></span>
+<br>
+<br>
+<pre id=grid4 class="board">
+</pre>
+<br>
+<br>
+<div class="answer">
+&nbsp;&nbsp;1._____________________21._____________________41._____________________61._____________________<br>
+&nbsp;&nbsp;2._____________________22._____________________42._____________________62._____________________<br>
+&nbsp;&nbsp;3._____________________23._____________________43._____________________63._____________________<br>
+&nbsp;&nbsp;4._____________________24._____________________44._____________________64._____________________<br>
+&nbsp;&nbsp;5._____________________25._____________________45._____________________65._____________________<br>
+&nbsp;&nbsp;6._____________________26._____________________46._____________________66._____________________<br>
+&nbsp;&nbsp;7._____________________27._____________________47._____________________67._____________________<br>
+&nbsp;&nbsp;8._____________________28._____________________48._____________________68._____________________<br>
+&nbsp;&nbsp;9._____________________29._____________________49._____________________69._____________________<br>
+10._____________________30._____________________50._____________________70._____________________<br>
+11._____________________31._____________________51._____________________71._____________________<br>
+12._____________________32._____________________52._____________________72._____________________<br>
+13._____________________33._____________________53._____________________73._____________________<br>
+14._____________________34._____________________54._____________________74._____________________<br>
+15._____________________35._____________________55._____________________75._____________________<br>
+16._____________________36._____________________56._____________________76._____________________<br>
+17._____________________37._____________________57._____________________77._____________________<br>
+18._____________________38._____________________58._____________________78._____________________<br>
+19._____________________39._____________________59._____________________79._____________________<br>
+20._____________________40._____________________60._____________________80._____________________<br>
+</div>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+<div class="pagebreak"></div>
+<h4>Easy Boggle&trade; Solitaire &mdash; Puzzle 5 of 7</h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+<h4 id="hlh" style="display: none">How long hidden? </h4>
+Find words in the grid using Boggle&trade; rules.
+<br>
+The computer found <span class=found5>&mdash;</span> non-arcane,
+non-archaic and non-specialized US English words.<br>
+How many can you find? <span id=percent5></span>
+<br>
+<br>
+<pre id=grid5 class="board">
+</pre>
+<br>
+<br>
+<div class="answer">
+&nbsp;&nbsp;1._____________________21._____________________41._____________________61._____________________<br>
+&nbsp;&nbsp;2._____________________22._____________________42._____________________62._____________________<br>
+&nbsp;&nbsp;3._____________________23._____________________43._____________________63._____________________<br>
+&nbsp;&nbsp;4._____________________24._____________________44._____________________64._____________________<br>
+&nbsp;&nbsp;5._____________________25._____________________45._____________________65._____________________<br>
+&nbsp;&nbsp;6._____________________26._____________________46._____________________66._____________________<br>
+&nbsp;&nbsp;7._____________________27._____________________47._____________________67._____________________<br>
+&nbsp;&nbsp;8._____________________28._____________________48._____________________68._____________________<br>
+&nbsp;&nbsp;9._____________________29._____________________49._____________________69._____________________<br>
+10._____________________30._____________________50._____________________70._____________________<br>
+11._____________________31._____________________51._____________________71._____________________<br>
+12._____________________32._____________________52._____________________72._____________________<br>
+13._____________________33._____________________53._____________________73._____________________<br>
+14._____________________34._____________________54._____________________74._____________________<br>
+15._____________________35._____________________55._____________________75._____________________<br>
+16._____________________36._____________________56._____________________76._____________________<br>
+17._____________________37._____________________57._____________________77._____________________<br>
+18._____________________38._____________________58._____________________78._____________________<br>
+19._____________________39._____________________59._____________________79._____________________<br>
+20._____________________40._____________________60._____________________80._____________________<br>
+</div>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+<div class="pagebreak"></div>
+<h4>Easy Boggle&trade; Solitaire &mdash; Puzzle 6 of 7</h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+<h4 id="hlh" style="display: none">How long hidden? </h4>
+Find words in the grid using Boggle&trade; rules.
+<br>
+The computer found <span class=found6>&mdash;</span> non-arcane,
+non-archaic and non-specialized US English words.<br>
+How many can you find? <span id=percent6></span>
+<br>
+<br>
+<pre id=grid6 class="board">
+</pre>
+<br>
+<br>
+<div class="answer">
+&nbsp;&nbsp;1._____________________21._____________________41._____________________61._____________________<br>
+&nbsp;&nbsp;2._____________________22._____________________42._____________________62._____________________<br>
+&nbsp;&nbsp;3._____________________23._____________________43._____________________63._____________________<br>
+&nbsp;&nbsp;4._____________________24._____________________44._____________________64._____________________<br>
+&nbsp;&nbsp;5._____________________25._____________________45._____________________65._____________________<br>
+&nbsp;&nbsp;6._____________________26._____________________46._____________________66._____________________<br>
+&nbsp;&nbsp;7._____________________27._____________________47._____________________67._____________________<br>
+&nbsp;&nbsp;8._____________________28._____________________48._____________________68._____________________<br>
+&nbsp;&nbsp;9._____________________29._____________________49._____________________69._____________________<br>
+10._____________________30._____________________50._____________________70._____________________<br>
+11._____________________31._____________________51._____________________71._____________________<br>
+12._____________________32._____________________52._____________________72._____________________<br>
+13._____________________33._____________________53._____________________73._____________________<br>
+14._____________________34._____________________54._____________________74._____________________<br>
+15._____________________35._____________________55._____________________75._____________________<br>
+16._____________________36._____________________56._____________________76._____________________<br>
+17._____________________37._____________________57._____________________77._____________________<br>
+18._____________________38._____________________58._____________________78._____________________<br>
+19._____________________39._____________________59._____________________79._____________________<br>
+20._____________________40._____________________60._____________________80._____________________<br>
+</div>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+<div class="pagebreak"></div>
+<h4>Easy Boggle&trade; Solitaire &mdash; Puzzle 7 of 7</h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+<h4 id="hlh" style="display: none">How long hidden? </h4>
+Find words in the grid using Boggle&trade; rules.
+<br>
+The computer found <span class=found7>&mdash;</span> non-arcane,
+non-archaic and non-specialized US English words.<br>
+How many can you find? <span id=percent7></span>
+<br>
+<br>
+<pre id=grid7 class="board">
+</pre>
+<br>
+<br>
+<div class="answer">
+&nbsp;&nbsp;1._____________________21._____________________41._____________________61._____________________<br>
+&nbsp;&nbsp;2._____________________22._____________________42._____________________62._____________________<br>
+&nbsp;&nbsp;3._____________________23._____________________43._____________________63._____________________<br>
+&nbsp;&nbsp;4._____________________24._____________________44._____________________64._____________________<br>
+&nbsp;&nbsp;5._____________________25._____________________45._____________________65._____________________<br>
+&nbsp;&nbsp;6._____________________26._____________________46._____________________66._____________________<br>
+&nbsp;&nbsp;7._____________________27._____________________47._____________________67._____________________<br>
+&nbsp;&nbsp;8._____________________28._____________________48._____________________68._____________________<br>
+&nbsp;&nbsp;9._____________________29._____________________49._____________________69._____________________<br>
+10._____________________30._____________________50._____________________70._____________________<br>
+11._____________________31._____________________51._____________________71._____________________<br>
+12._____________________32._____________________52._____________________72._____________________<br>
+13._____________________33._____________________53._____________________73._____________________<br>
+14._____________________34._____________________54._____________________74._____________________<br>
+15._____________________35._____________________55._____________________75._____________________<br>
+16._____________________36._____________________56._____________________76._____________________<br>
+17._____________________37._____________________57._____________________77._____________________<br>
+18._____________________38._____________________58._____________________78._____________________<br>
+19._____________________39._____________________59._____________________79._____________________<br>
+20._____________________40._____________________60._____________________80._____________________<br>
+</div>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+<div class="pagebreak"></div>
+
+<h4> Solution page for Easy Boggle Solitaire </h4>
+<h5>https://roytobin.github.io/ebs/ The five letter book code
+for this book of puzzles: <span class="code"></span></h5>
+
+<h4>Puzzle 1</h4>
+<p class="solution"><span class=found1></span> words found &mdash; <span id=solution1></span>
+<br>
+<h4>Puzzle 2</h4>
+<p class="solution"><span class=found2></span> words found &mdash; <span id=solution2></span>
+<br>
+<h4>Puzzle 3</h4>
+<p class="solution"><span class=found3></span> words found &mdash; <span id=solution3></span>
+<br>
+<h4>Puzzle 4</h4>
+<p class="solution"><span class=found4></span> words found &mdash; <span id=solution4></span>
+<br>
+<h4>Puzzle 5</h4>
+<p class="solution"><span class=found5></span> words found &mdash; <span id=solution5></span>
+<br>
+<h4>Puzzle 6</h4>
+<p class="solution"><span class=found6></span> words found &mdash; <span id=solution6></span>
+<br>
+<h4>Puzzle 7</h4>
+<p class="solution"><span class=found7></span> words found &mdash; <span id=solution7></span>
+<br>
+
+<script defer src="encdict.js"></script>
+<script>
+"use strict"
+
+const NumPuzzles = 7;
+
+// BEGIN
+// A generator function that produces
+// a [0,1) prng function using 'code' as seed
+//
+function mk_prng(code) {
+    // From https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript
+    // which references http://pracrand.sourceforge.net/
+    //
+    // [tobin] beware!  experiments show that after seeding the first few values
+    // returned are all very close to zero, which is not randomness.  Perhaps
+    // the function needs to be called several times after seeding to start
+    // to get pseudo-random sequence.
+    // [update 7/16/2021: now believe above trouble is due to poor seeding.
+    //  Updated to use xmur3() to harvest reasonable seed numbers]
+    //
+    function sfc32(a, b, c, d) {
+	return function() {
+	  a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0; 
+	  var t = (a + b) | 0;
+	  a = b ^ b >>> 9;
+	  b = c + (c << 3) | 0;
+	  c = (c << 21 | c >>> 11);
+	  d = d + 1 | 0;
+	  t = t + d | 0;
+	  c = c + t | 0;
+	  return (t >>> 0) / 4294967296;
+	}
+    }
+    function xmur3(str) {
+	for(var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
+	    h = Math.imul(h ^ str.charCodeAt(i), 3432918353),
+	    h = h << 13 | h >>> 19;
+	return function() {
+	    h = Math.imul(h ^ h >>> 16, 2246822507),
+	    h = Math.imul(h ^ h >>> 13, 3266489909);
+	    return (h ^= h >>> 16) >>> 0;
+	}
+    }
+    // Here, use a hash function to generate better quality seeds.
+    // Reference https://github.com/bryc/code/blob/master/jshash/\
+    //	PRNGs.md#addendum-a-seed-generating-functions
+    //
+    var sgf = xmur3(code);   // sgf() == seedGeneratingFunction
+    return sfc32(sgf(), sgf(), sgf(), sgf());
+}
+// END
+// BEGIN
+function boggle(myrand) { // argument 'myrand' must be a PRNG function in interval [0,1)
+
+    let die = [];
+    die[ 0] = "IHNUMQ";
+    die[ 1] = "EOTSSI";
+    die[ 2] = "HNLNZR";
+    die[ 3] = "AWTOOT";
+    die[ 4] = "EEHNWG";
+    die[ 5] = "EEGNAA";
+    die[ 6] = "ERLIXD";
+    die[ 7] = "EYTLRT";
+    die[ 8] = "CMUOIT";
+    die[ 9] = "AHSPOC";
+    die[10] = "DRYVLE";
+    die[11] = "ERWTVH";
+    die[12] = "ABBOOJ";
+    die[13] = "ASPFKF";
+    die[14] = "EEUSIN";
+    die[15] = "DTYTIS";
+
+    function fisheryates(a) {  // shuffle (permute) the passed array in place
+        for (let idx = a.length; --idx;) {
+	    let j = Math.floor((idx+1)*myrand());
+	    let t = a[j];
+	    a[j] = a[idx];
+	    a[idx] = t;
+	}
+	return a;
+    }
+    return function () { 
+        let dice = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+        let perm = fisheryates(dice);  // permute the order
+
+
+        let game = '';
+	for(let idx = 0; idx < 16; ++idx) {
+	    game = game + die[ perm[idx] ][ Math.floor(6*myrand()) ];
+	}
+	return game;
+    }
+}
+// END
+// BEGIN
+function mk_solver() {
+    const Move = [];
+    Move[0]  = [1, 5, 4];
+    Move[1]  = [0, 2, 6, 5, 4];
+    Move[2]  = [1, 3, 7, 6, 5];
+    Move[3]  = [2, 6, 7];
+    Move[4]  = [0, 1, 5, 9, 8];
+    Move[5]  = [1, 2, 6, 10, 9, 8, 4, 0];
+    Move[6]  = [2, 3, 7, 11, 10, 9, 5, 1];
+    Move[7]  = [3, 11, 10, 6, 2];
+    Move[8]  = [4, 5, 9, 13, 12];
+    Move[9]  = [5, 6, 10, 14, 13, 12, 8, 4];
+    Move[10] = [6, 7, 11, 15, 14, 13, 9, 5];
+    Move[11] = [7, 15, 14, 10, 6];
+    Move[12] = [8, 9, 13];
+    Move[13] = [9, 10, 14, 12, 8];
+    Move[14] = [10, 11, 15, 13, 9];
+    Move[15] = [11, 14, 10];
+    const STlead = Symbol();
+    const STgap = Symbol();
+    const ST1 = Symbol();
+    const ST2 = Symbol();
+    const ST3 = Symbol();
+    const STerr = Symbol();
+    const Term_mask = 2**31;
+    const ord_of_A = 'A'.charCodeAt(0);
+    const ord_of_U = 'U'.charCodeAt(0);
+    let ready = false
+    let Dict = [];
+    let Game = '';
+    let All_found = {};
+
+    let deadman = 0;
+    function traverse(base, word) {
+	let ref, off;
+	const alpha = 'abcdefghijklmnopqrstuvwxyz';
+	if (deadman > 50)  // only do a few, in case running browser
+	    return;
+	for (let off = 0; off < 26; ++off) {
+	    ref = Dict[base+off];
+	    
+	    if ( undefined === ref )
+		continue;
+	    if ( ref >= Term_mask) {
+		console.log(word + alpha[off]);  // concatenation
+		ref = ref - Term_mask;  // clear bit arithmetically
+		++deadman;
+	    }
+	    if (0 !== ref)
+		traverse(ref, word + alpha[off]);  // recur after concatenation
+	}
+    }
+    function insert(i, n) {
+	Dict[i] = n;
+	//console.log("insert ", i, n);
+    }
+    function init() {
+        let septet;  // a group of 7 bits, encoded as a single ASCII character
+	let term, j, n;
+	let offset;  // offset is the index increment to the next defined reference
+	let state = STlead;
+        let index = 0;
+	for (j=0; j < encDict.length; ++j) {
+	    septet = encDict.charCodeAt(j);
+	    //console.log("septet", septet);
+	    switch(state) {
+	    case STlead:
+		// The msb of the septet indicates if this ref is word termination
+		if (septet < 64) {
+		    term = false;
+		}
+		else {
+		    term = true;
+		    septet = septet - 64;  // clear the msb arithmetically
+		}
+
+		if (septet < 52) {
+		    n = 0;
+		    offset = septet;
+		    state = ST1;
+		}
+		else if (septet < 61) {
+		    console.log("error: bad lead-in of", septet);
+		    state = STerr;
+		}
+		else {
+		    n = (64-septet) * 128**3;
+		    //gap (actually index offset) is determined in the "gap" state
+		    state = STgap;
+		}
+		continue;
+	    case STgap:
+		offset = septet;
+		state = ST1;
+		continue;
+	    case ST1:
+		n +=+ septet * 128**2;
+		state = ST2;
+		continue;
+	    case ST2:
+		n += septet * 128**1;
+		state = ST3;
+		continue;
+	    case ST3:
+		n += septet * 128**0;
+		n += (term) ? Term_mask : 0;
+		insert(index, n);
+		index += offset;
+		state = STlead;
+		continue;
+	    case STerr:
+		// Stay in this state until the end of processing since there
+		// is no way to resynchronize.
+	        alert("A syncing error occurred decoding the dictionary used to find words");
+		continue;
+	    }
+	}
+    }
+    function detect (word) {
+	if (All_found[word]) return;
+        All_found[word] = 1;
+    }
+    function wordfind (base, pos, word, verboten) {
+        let letter = Game[pos];
+	let off = letter.charCodeAt(0) - ord_of_A;
+	let ref = Dict[base+off];
+
+	/*
+	If the letter is Q, then need to inject or intercede a U because the
+	boggle die side is labeled "Qu."  Thus, no non-Qu words are permitted.
+	Out, for example, are words "qat" and "qiviut."    Debatable if
+	any non-Qu words are common US English.
+	*/
+	/* perl comment: Begin a BLOCK here that may possibly be redo'd to accommodate the
+	# "QU" digraph.  This technique is employed to have the code for the
+	# "detect" and recursion-ending statements written only once in one
+	# place.  The redo works here because in perl a BLOCK is semantically
+	# equivalent to a loop that executes once.
+	// javascript comment: hack to simulate a redo
+	*/
+	{let once=1;
+	while (once) {
+	    if ( undefined === ref ) return;
+
+	    if ( ref >= Term_mask) {
+	        detect(word+letter);
+		ref = ref - Term_mask;
+	    }
+
+	    if (0 === ref) return;
+
+	    if ('Q' === letter) {
+	        ref = Dict[ref + ord_of_U - ord_of_A];
+		letter = letter + 'U';
+	        continue;  // surrogate "redo"
+	    }
+	    --once;
+	}}
+	verboten = verboten | (1<<pos);
+	for (let next_move of Move[pos]) {
+	    if (verboten & (1<<next_move))
+	        continue;
+	    wordfind(ref, next_move, word+letter, verboten);  // recur
+	}
+    }
+    return function(game) {
+        Game = game;
+        if (!ready) {
+	    init();
+            ready = true;
+	}
+
+	All_found = {};
+	for (let pos = 0; pos < 16; ++pos) {
+	    wordfind(0, pos, "", 0);
+	}
+        return Object.keys(All_found).sort();
+    }
+}
+// END
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+function checkCode() {
+    let code = getUrlVars()["code"];
+    if ( undefined === code ) {
+	window.location.href = "index.html";
+    }
+    return code;
+}
+
+function populateCode(code) {
+    for (let elem of document.querySelectorAll(".code")) {
+        elem.innerHTML = code;
+    }
+}
+function populateGrid(idx, puz) {
+    let quReplacement = '<span class="qu">Q</span><span class="letsp">u</span>';
+    let res = puz.split(/(\w{4})/);
+    let elem = document.getElementById(`grid${idx}`);
+
+    res[1] = res[1].replace('Q', quReplacement);
+    res[3] = res[3].replace('Q', quReplacement);
+    res[5] = res[5].replace('Q', quReplacement);
+    res[7] = res[7].replace('Q', quReplacement);
+    elem.innerHTML = [res[1], res[3], res[5], res[7]].join("\n");
+}
+function populateDOM(idx, sol) {
+    let elem, found;
+
+    found = sol.length;
+    for (elem of document.querySelectorAll(`.found${idx}`)) {
+	elem.innerHTML = found.toString();
+    }
+
+    let p65 = Math.round(0.65 * found);
+    let p70 = Math.round(0.70 * found);
+    let p75 = Math.round(0.75 * found);
+    let p80 = Math.round(0.80 * found);
+    let p85 = Math.round(0.85 * found);
+    elem = document.getElementById(`percent${idx}`);
+    elem.innerHTML = `&emsp;65%=${p65} &emsp;70%=${p70} <b>&emsp;75%=${p75}</b> &emsp;80%=${p80}  &emsp;85%=${p85}`;
+    
+    elem = document.getElementById(`solution${idx}`);
+    elem.innerHTML = sol.join(' ').toLowerCase();
+}
+function callbackSolve(puzzle) {
+    //let start = (new Date).getTime();  // profiling
+    let solve = mk_solver();
+    for (let idx = 1; idx <= NumPuzzles; ++idx) {
+	populateDOM(idx, solve(puzzle[idx]));
+    }
+    //let stop = (new Date).getTime();	// profiling
+    //console.log("callbackSolve 9 ", stop - start);	// profiling
+}
+function bodyLoaded() {
+    let code = checkCode();
+    if ( undefined === code )
+        return;
+    populateCode(code);
+
+    // mk_prng() returns a pseudo random number generator (RNG) function value
+    //
+    let myrand = mk_prng(code);
+
+    let mygen = boggle(myrand);  // boggle() returns a game-generating function value
+
+    let puzzle = [];
+    for (let idx = 1; idx <= NumPuzzles; ++idx) {
+        puzzle[idx] = mygen();
+	populateGrid(idx, puzzle[idx]);
+    }
+
+    // Relinquish back to render engine to update HTML page promptly now that the puzzle
+    // grids are populated.  Do this before the more involved computation of
+    // decompressing the dictionary and solving the puzzles.
+    //
+    setTimeout(callbackSolve, 1, puzzle);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title> Found words in a Boggle </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest"  xxhref="site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" xxhref="apple-touch-icon.png">
+
+<!-- https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
+<meta name="apple-mobile-web-app-title" content="Found words in a Boggle">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="keywords"    content="boggle, solitaire, puzzle, JavaScript">
+<meta name="description" content="DESCRIPTION">
+<script>
+window.boggleVersion = '0.1';
+</script>
+<style>
+:root {
+    --varOne: 10;
+}
+p {
+    word-spacing: 1vw;
+}
+.line {
+    font-weight: 100;
+}
+.board {
+    margin: auto;
+    color: blue;
+    font-weight: bold;
+    width: 25%;  /* beware: render in print preview shifts to left */
+    border: 1px solid black
+    padding: 10px;
+    xxfont-size: 2.5vw;
+    font-size: 250%;
+    letter-spacing: 2.6vw;
+}
+.grid {
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    width: 50%;
+    display: grid;
+    xxgrid-template-columns: 3.8vw 3.8vw 3.8vw 3.8vw;
+    grid-template-columns: 4.8vw 4.8vw 4.8vw 4.8vw;
+}
+.item {
+    color: blue;
+    font-weight: bold;
+    xxborder: 1px solid green;
+    font-family: monospace;
+    font-size: 250%;
+    text-align: center;
+}
+.answer {
+    line-height: 180%;
+}
+.pagebreak {
+    page-break-after: always;
+}
+</style>
+</head>
+
+<body onload="bodyLoaded()">
+<!--[if IE]>
+  <h1> Internet Explorer is not supported </h1>
+<![endif]-->
+<noscript><h1> JavaScript is not enabled </h1></noscript>
+
+<h4>Found words for a Boggle&trade; </h4>
+<h5>https://roytobin.github.io/ebs/ </h5>
+
+Found words in the grid using Boggle&trade; rules.
+<br>
+</span>
+
+<br>
+<pre id="grid1" class="board">
+</pre>
+
+<p class="solution"><span class=found1></span> words found &mdash; <span id=solution1></span>
+<h5>Feedback:  https://github.com/roytobin/ebs/issues/ </h5>
+
+<script defer src="encdict.js"></script>
+<script>
+"use strict"
+
+SOLVER
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+function checkGame() {
+    let game = getUrlVars()["game"];
+    if ( undefined === game ) {
+	window.location.href = "index.html";
+    }
+    return game.toUpperCase();
+}
+function populateDOM(idx, puz, sol) {
+    let elem, found;
+
+    let res = puz.split(/(\w{4})/);
+    elem = document.getElementById(`grid${idx}`);
+    elem.innerHTML = [res[1], res[3], res[5], res[7]].join("\n");
+
+    found = sol.length;
+    for (elem of document.querySelectorAll(`.found${idx}`)) {
+        elem.innerHTML = found.toString();
+    }
+
+    elem = document.getElementById(`solution${idx}`);
+    elem.innerHTML = sol.join(' ').toLowerCase();
+}
+function bodyLoaded() {
+    let game = checkGame();
+    if ( undefined === game )
+	return;
+
+    let solve = mk_solver();
+    populateDOM(1, game, solve(game));
+}
+</script>
+</body>
+</html>

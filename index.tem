@@ -14,7 +14,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="keywords"    content="boggle, solitaire, puzzle, JavaScript">
-<meta name="description" content="free printable boggle worksheets and boggle boards with solutions">
+<meta name="description" content="DESCRIPTION">
 <script>
 window.boggleVersion = '0.1';
 </script>
@@ -112,39 +112,7 @@ Example  liosysdasertaaga<br>
 <script>
 "use strict"
 
-// BEGIN
-class History {  // a wrapper around Web Storage API
-    constructor() {
-	let keystr = localStorage.getItem(History.key);  // returns string of previously gen'd books
-	this.prev = keystr ? keystr.split('+') : [];  // Split into an array (if truthy)
-    }
-
-    _strRep(c) {  // STRing REPresentation, intended only for internal use
-        return c ? c.toString() : "void";
-    }
-
-    isPresent(c) {
-        c = this._strRep(c);  // expecting a string, but make damn sure
-	return this.prev.indexOf(c) >= 0;
-    }
-
-    getHist() {
-	return localStorage.getItem(History.key);
-    }
-
-    add(c) {
-        c = this._strRep(c);  // expecting a string, but make damn sure
-	if (this.isPresent(c))
-	    return null;
-	this.prev.unshift(c);
-	this.prev.length = Math.min(History.limit, this.prev.length);
-	return localStorage.setItem(History.key, this.prev.join('+'));
-    }
-
-}
-History.limit = 600;
-History.key = `dont-repeat-last-${History.limit}-random-gamebooks`;
-// END
+HIST
 
 function navigateToBookPage (code) {
     let prefix;
